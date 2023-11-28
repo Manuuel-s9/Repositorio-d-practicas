@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Correo Electrónico</title>
+    <script>
+        function validarCorreo() {
+            // Obtener el valor del campo de texto
+            var correo = document.getElementById('correo').value;
+
+            // Expresión regular para validar el formato del correo
+            var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            // Validar el formato del correo
+            if (regex.test(correo)) {
+                // Verificar si contiene las terminaciones .com o .mx
+                if (correo.includes('.com') || correo.includes('.mx')) {
+                    alert('El correo electrónico es válido.');
+                } else {
+                    alert('El correo electrónico no contiene las terminaciones .com o .mx.');
+                }
+            } else {
+                alert('Formato de correo electrónico inválido.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Validador de Correo Electrónico</h2>
+    <label for="correo">Ingrese su correo electrónico:</label>
+    <input type="text" id="correo" placeholder="correo@example.com">
+    <button onclick="validarCorreo()">Validar</button>
+</body>
+</html>
